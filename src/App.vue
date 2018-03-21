@@ -1,12 +1,31 @@
 <template>
   <div id="app">
     <h1>Todos</h1>
+    <div class="todo" v-for="todo in todos" :key="todo.id">
+      {{ todo.task }}
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "app"
+  name: "app",
+  data() {
+    return {
+      todos: [
+        {
+          id: "1",
+          task: "Use local state",
+          completed: true
+        },
+        {
+          id: "2",
+          task: "Use Vuex store",
+          completed: false
+        }
+      ]
+    };
+  }
 };
 </script>
 
