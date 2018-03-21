@@ -5,9 +5,9 @@
 
     <div class="add-todo">
       <b-field>
-        <b-input placeholder="What's to do?" expanded/>
+        <b-input v-model="task" placeholder="What's to do?" expanded/>
         <span class="control">
-          <button class="button is-primary">
+          <button @click="createTodo" class="button is-primary">
             <i class="mdi mdi-plus"></i>
           </button>
         </span>
@@ -33,8 +33,21 @@
 <script>
 export default {
   name: "app",
+  methods: {
+    createTodo() {
+      if (this.task) {
+        this.todos.push({
+          id: String(this.todos.length + 1),
+          task: this.task,
+          completed: false
+        });
+      }
+      this.task = null;
+    }
+  },
   data() {
     return {
+      task: null,
       todos: [
         {
           id: "1",
