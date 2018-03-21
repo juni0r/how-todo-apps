@@ -1,6 +1,6 @@
 <template>
   <div class="todo" :class="{ completed }">
-    <span class="status" @click="todo.completed = !todo.completed">
+    <span class="status" @click="toggle">
       <b-icon class="icon-unchecked" icon="checkbox-blank-circle-outline"/>
       <b-icon class="icon-checked" icon="checkbox-marked-circle-outline"/>
     </span>
@@ -15,6 +15,11 @@ export default {
   computed: {
     completed() {
       return this.todo.completed;
+    }
+  },
+  methods: {
+    toggle() {
+      this.$emit("toggle");
     }
   }
 };

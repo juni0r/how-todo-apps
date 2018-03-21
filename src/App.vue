@@ -16,7 +16,7 @@
 
     <div class="todo-list">
       <div v-for="todo in todos" :key="todo.id" class="todo-list-item">
-        <Todo :todo="todo"/>
+        <Todo :todo="todo" @toggle="toggleTodo(todo)"/>
         <b-icon icon="close" @click.native="removeTodo(todo.id)"/>
       </div>
     </div>
@@ -41,6 +41,10 @@ export default {
 
     removeTodo(id) {
       todosRef.doc(id).delete();
+    },
+
+    toggleTodo(todo) {
+      todosRef.doc(todo.id).update({ completed: !todo.completed });
     }
   },
 
