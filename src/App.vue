@@ -5,7 +5,12 @@
 
     <div class="add-todo">
       <b-field>
-        <b-input v-model="task" placeholder="What's to do?" expanded/>
+        <b-input
+          v-model.trim="task"
+          @keyup.native.enter="createTodo"
+          placeholder="What's to do?"
+          expanded
+        />
         <span class="control">
           <button @click="createTodo" class="button is-primary">
             <i class="mdi mdi-plus"></i>
@@ -79,6 +84,7 @@ export default {
     font-size: 36px;
     font-weight: 200;
     text-align: center;
+    margin-bottom: 18px;
   }
 }
 
