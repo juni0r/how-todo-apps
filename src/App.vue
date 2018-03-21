@@ -15,16 +15,8 @@
     </div>
 
     <div class="todo-list">
-      <div class="todo"
-        v-for="todo in todos"
-        :key="todo.id"
-        :class="todo.completed ? 'completed' : 'pending'"
-        >
-        <span class="status" @click="todo.completed = !todo.completed">
-          <b-icon class="icon-unchecked" icon="checkbox-blank-circle-outline"/>
-          <b-icon class="icon-checked" icon="checkbox-marked-circle-outline"/>
-        </span>
-        <span class="task">{{ todo.task }}</span>
+      <div v-for="todo in todos" :key="todo.id" class="todo-list-item">
+        <Todo :todo="todo"/>
         <b-icon icon="close" @click.native="removeTodo(todo.id)"/>
       </div>
     </div>
@@ -32,8 +24,11 @@
 </template>
 
 <script>
+import Todo from "@/components/Todo";
+
 export default {
   name: "app",
+  components: { Todo },
 
   methods: {
     createTodo() {
@@ -84,7 +79,6 @@ export default {
     font-size: 36px;
     font-weight: 200;
     text-align: center;
-    margin-bottom: 0.5em;
   }
 }
 
@@ -92,40 +86,9 @@ export default {
   margin: 20px 0;
 }
 
-.todo {
+.todo-list-item {
   display: flex;
   flex-flow: row;
   margin: 12px 0;
-
-  .task {
-    flex: 1 1 auto;
-  }
-
-  .status {
-    margin-right: 0.5em;
-
-    .icon-checked {
-      display: none;
-      color: green;
-    }
-    .icon-unchecked {
-      display: inline-flex;
-    }
-  }
-
-  &.completed {
-    .status {
-      .icon-checked {
-        display: inline-flex;
-      }
-      .icon-unchecked {
-        display: none;
-      }
-    }
-
-    .task {
-      text-decoration: line-through;
-    }
-  }
 }
 </style>
