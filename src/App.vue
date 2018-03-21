@@ -20,7 +20,7 @@
         :key="todo.id"
         :class="todo.completed ? 'completed' : 'pending'"
         >
-        <span class="status">
+        <span class="status" @click="todo.completed = !todo.completed">
           <b-icon class="icon-unchecked" icon="checkbox-blank-circle-outline"/>
           <b-icon class="icon-checked" icon="checkbox-marked-circle-outline"/>
         </span>
@@ -33,6 +33,7 @@
 <script>
 export default {
   name: "app",
+
   methods: {
     createTodo() {
       if (this.task) {
@@ -43,8 +44,13 @@ export default {
         });
       }
       this.task = null;
+    },
+
+    toggleTodo(todo) {
+      todo.completed = !todo.completed;
     }
   },
+
   data() {
     return {
       task: null,
