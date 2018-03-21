@@ -19,12 +19,12 @@
       </b-field>
     </div>
 
-    <div class="todo-list">
+    <transition-group tag="div" name="todo-list" class="todo-list">
       <div v-for="todo in todos" :key="todo.id" class="todo-list-item">
         <Todo :todo="todo" @toggle="toggleTodo(todo)"/>
         <b-icon icon="close" @click.native="removeTodo(todo.id)"/>
       </div>
-    </div>
+    </transition-group>
   </div>
 </template>
 
@@ -96,5 +96,16 @@ export default {
   display: flex;
   flex-flow: row;
   margin: 12px 0;
+}
+
+.todo-list-enter-active,
+.todo-list-leave-active {
+  transition: all 0.3s ease;
+}
+
+.todo-list-enter,
+.todo-list-leave-to {
+  opacity: 0;
+  transform: scale(0.9);
 }
 </style>
