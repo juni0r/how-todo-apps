@@ -1,16 +1,31 @@
 <template>
   <div id="app">
+
     <h1>Todos</h1>
-    <div class="todo"
-      v-for="todo in todos"
-      :key="todo.id"
-      :class="todo.completed ? 'completed' : 'pending'"
-    >
-      <span class="status">
-        <b-icon class="icon-unchecked" icon="checkbox-blank-circle-outline"/>
-        <b-icon class="icon-checked" icon="checkbox-marked-circle-outline"/>
-      </span>
-      <span class="task">{{ todo.task }}</span>
+
+    <div class="add-todo">
+      <b-field>
+        <b-input placeholder="What's to do?" expanded/>
+        <span class="control">
+          <button class="button is-primary">
+            <i class="mdi mdi-plus"></i>
+          </button>
+        </span>
+      </b-field>
+    </div>
+
+    <div class="todo-list">
+      <div class="todo"
+        v-for="todo in todos"
+        :key="todo.id"
+        :class="todo.completed ? 'completed' : 'pending'"
+        >
+        <span class="status">
+          <b-icon class="icon-unchecked" icon="checkbox-blank-circle-outline"/>
+          <b-icon class="icon-checked" icon="checkbox-marked-circle-outline"/>
+        </span>
+        <span class="task">{{ todo.task }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -44,13 +59,17 @@ export default {
   max-width: 360px;
   margin: 0 auto;
   padding: 24px;
+
+  h1 {
+    font-size: 36px;
+    font-weight: 200;
+    text-align: center;
+    margin-bottom: 0.5em;
+  }
 }
 
-h1 {
-  font-size: 36px;
-  font-weight: 200;
-  text-align: center;
-  margin-bottom: 0.5em;
+.todo-list {
+  margin: 20px 0;
 }
 
 .todo {
