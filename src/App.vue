@@ -25,6 +25,7 @@
           <b-icon class="icon-checked" icon="checkbox-marked-circle-outline"/>
         </span>
         <span class="task">{{ todo.task }}</span>
+        <b-icon icon="close" @click.native="removeTodo(todo.id)"/>
       </div>
     </div>
   </div>
@@ -46,8 +47,8 @@ export default {
       this.task = null;
     },
 
-    toggleTodo(todo) {
-      todo.completed = !todo.completed;
+    removeTodo(id) {
+      this.todos = this.todos.filter(todo => todo.id != id);
     }
   },
 
@@ -92,26 +93,30 @@ export default {
 }
 
 .todo {
+  display: flex;
+  flex-flow: row;
+  margin: 12px 0;
+
+  .task {
+    flex: 1 1 auto;
+  }
+
   .status {
     margin-right: 0.5em;
-
-    i {
-      vertical-align: middle;
-    }
 
     .icon-checked {
       display: none;
       color: green;
     }
     .icon-unchecked {
-      display: initial;
+      display: inline-flex;
     }
   }
 
   &.completed {
     .status {
       .icon-checked {
-        display: initial;
+        display: inline-flex;
       }
       .icon-unchecked {
         display: none;
