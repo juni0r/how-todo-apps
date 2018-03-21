@@ -58,7 +58,7 @@ export default {
         },
         {
           id: "2",
-          task: "Use Vuex store",
+          task: "Use Firestore 🔥",
           completed: false
         }
       ]
