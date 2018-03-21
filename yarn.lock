@@ -1315,6 +1315,12 @@ browserslist@^3.0.0, browserslist@^3.1.1:
     caniuse-lite "^1.0.30000815"
     electron-to-chromium "^1.3.39"
 
+buefy@^0.6.4:
+  version "0.6.4"
+  resolved "https://nexus.corp.mobile.de/nexus/repository/npm-all/buefy/-/buefy-0.6.4.tgz#a5447886c4c6311283f54555699991ed5179fa0a"
+  dependencies:
+    bulma "^0.6.2"
+
 buffer-from@^1.0.0:
   version "1.0.0"
   resolved "https://nexus.corp.mobile.de/nexus/repository/npm-all/buffer-from/-/buffer-from-1.0.0.tgz#4cb8832d23612589b0406e9e2956c17f06fdf531"
@@ -1342,6 +1348,10 @@ builtin-modules@^1.0.0:
 builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://nexus.corp.mobile.de/nexus/repository/npm-all/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
+
+bulma@^0.6.2:
+  version "0.6.2"
+  resolved "https://nexus.corp.mobile.de/nexus/repository/npm-all/bulma/-/bulma-0.6.2.tgz#f4b1d11d5acc51a79644eb0a2b0b10649d3d71f5"
 
 bytes@3.0.0:
   version "3.0.0"
@@ -4306,6 +4316,10 @@ md5.js@^1.3.4:
   dependencies:
     hash-base "^3.0.0"
     inherits "^2.0.1"
+
+mdi@^2.1.99:
+  version "2.1.99"
+  resolved "https://nexus.corp.mobile.de/nexus/repository/npm-all/mdi/-/mdi-2.1.99.tgz#5cf54101735d0aefe55f7cc544bc554fe8689319"
 
 media-typer@0.3.0:
   version "0.3.0"
