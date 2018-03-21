@@ -25,6 +25,7 @@
 
 <script>
 import Todo from "@/components/Todo";
+import { todosRef } from "./firestore";
 
 export default {
   name: "app",
@@ -33,36 +34,31 @@ export default {
   methods: {
     createTodo() {
       if (this.task) {
-        this.todos.push({
-          id: String(this.todos.length + 1),
-          task: this.task,
-          completed: false
-        });
+        todosRef.add({ task: this.task, completed: false });
       }
       this.task = null;
     },
 
     removeTodo(id) {
-      this.todos = this.todos.filter(todo => todo.id != id);
+      todosRef.doc(id).delete();
     }
   },
 
   data() {
     return {
       task: null,
-      todos: [
-        {
-          id: "1",
-          task: "Use local state",
-          completed: true
-        },
-        {
-          id: "2",
-          task: "Use Firestore 🔥",
-          completed: false
-        }
-      ]
+      todos: []
     };
+  },
+
+  created() {
+    todosRef.onSnapshot(docs => {
+      const todos = [];
+      docs.forEach(doc => {
+        todos.push({ id: doc.id, ...doc.data() });
+      });
+      this.todos = todos;
+    });
   }
 };
 </script>
