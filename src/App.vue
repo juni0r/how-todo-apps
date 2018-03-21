@@ -11,10 +11,18 @@ export default {
 </script>
 
 <style lang="scss">
+@import "styles";
+
 #app {
-  font-family: Helvetica, Arial, sans-serif;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 200;
   text-align: center;
-  color: #333;
-  margin-top: 20px;
+  margin-bottom: 0.5em;
 }
 </style>

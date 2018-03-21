@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:200,400,700");
+
+@import "~bulma/sass/utilities/all";
+
+$primary: #339bd0;
+$primary-invert: findColorInvert($primary);
+
+$family-sans-serif: "Roboto";
+$body-background-color: #f9f9f9;
+$text: #888;
+
+$colors: (
+  "primary": ($primary, $primary-invert),
+);
+
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
